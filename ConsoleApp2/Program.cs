@@ -5,31 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp2
-{     internal class Program
+{
+    internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter the speed limit: ");
-            int speedLimit = int.Parse(Console.ReadLine());
+            List<string> names = new List<string>();
+            string input;
 
-            Console.Write("Enter the speed of the car: ");
-            int carSpeed = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter names (press Enter to stop):");
 
-            if (carSpeed <= speedLimit)
+            while (true)
             {
-                Console.WriteLine("Ok");
-            }
-            else
-            {
-                int demeritPoints = (carSpeed - speedLimit) / 5;
-                Console.WriteLine($"Demerit Points: {demeritPoints}");
-
-                if (demeritPoints > 12)
-                {
-                    Console.WriteLine("License Suspended");
-                }
+                input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input))
+                    break;
+                names.Add(input);
             }
 
+            FacebookPost.DisplayLikes(names);
         }
     }
 }
