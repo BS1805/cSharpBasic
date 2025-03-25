@@ -9,12 +9,19 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            var count = 0;
-            for (int i = 0; i <= 100; i++)
+            Console.Write("Enter a number between 1 and 10: ");
+
+            string input = Console.ReadLine();
+
+            if (int.TryParse(input, out int number) && number >= 1 && number <= 10)
             {
-                if (i % 3 == 0) count++;
+                Console.WriteLine("Valid");
             }
-            Console.WriteLine("total count is "+ count +'\n');
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+
         }
     }
 }
