@@ -10,20 +10,10 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            List<string> names = new List<string>();
-            string input;
+            Console.Write("Enter a time in 24-hour format (HH:mm): ");
+            string input = Console.ReadLine();
 
-            Console.WriteLine("Enter names (press Enter to stop):");
-
-            while (true)
-            {
-                input = Console.ReadLine();
-                if (string.IsNullOrWhiteSpace(input))
-                    break;
-                names.Add(input);
-            }
-
-            FacebookPost.DisplayLikes(names);
+            TimeValidator.ValidateTime(input);
         }
     }
 }
