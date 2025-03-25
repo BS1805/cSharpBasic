@@ -9,17 +9,25 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a number between 1 and 10: ");
+            Console.Write("Enter the speed limit: ");
+            int speedLimit = int.Parse(Console.ReadLine());
 
-            string input = Console.ReadLine();
+            Console.Write("Enter the speed of the car: ");
+            int carSpeed = int.Parse(Console.ReadLine());
 
-            if (int.TryParse(input, out int number) && number >= 1 && number <= 10)
+            if (carSpeed <= speedLimit)
             {
-                Console.WriteLine("Valid");
+                Console.WriteLine("Ok");
             }
             else
             {
-                Console.WriteLine("Invalid");
+                int demeritPoints = (carSpeed - speedLimit) / 5;
+                Console.WriteLine($"Demerit Points: {demeritPoints}");
+
+                if (demeritPoints > 12)
+                {
+                    Console.WriteLine("License Suspended");
+                }
             }
 
         }
