@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +9,15 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter a time in 24-hour format (HH:mm): ");
-            string input = Console.ReadLine();
+            Console.Write("Enter the file path: ");
+            string filePath = Console.ReadLine();
 
-            TimeValidator.ValidateTime(input);
+            string longestWord = LongestWordFinder.FindLongestWord(filePath);
+
+            if (!string.IsNullOrEmpty(longestWord))
+            {
+                Console.WriteLine("Longest word: " + longestWord);
+            }
         }
     }
 }
